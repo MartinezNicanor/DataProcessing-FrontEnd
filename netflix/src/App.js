@@ -1,20 +1,19 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Homepage from "./pages/home/homepage";
+import Header from './components/header/header';
 
 function App() {
   return (
     <div className="main-container">
-      <header className="header">
-        <ul className='header-links'>
-            <li><a className='header-link' href="">My Profile</a></li>
-            <li><a className='header-link' href="">Users Overview</a></li>
-        </ul>
-        <h1 className="logo">NETFLIX</h1>
-        <div className='header-buttons'>
-            <button>Log in</button>
-            <button>Log out</button>
-        </div>
-      </header>
+        <Header />
+        <Router>
+            <Routes>
+                <Route path={"/"} element={<Homepage />} />
+            </Routes>
+        </Router>
     </div>
+    
   );
 }
 
