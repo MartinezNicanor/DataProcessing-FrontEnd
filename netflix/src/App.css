@@ -25,3 +25,9 @@
 .header-links {
     display: flex;
 }
+
+
+/* login */
+.login-containter {
+    background-color: #1E1E1E;
+}

@@ -1,0 +1,47 @@
+body {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+#container{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	
+	background-color: black;
+}
+
+.login-container {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 5em;
+    background-color: #1E1E1E;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+#logo {
+    margin-bottom: 2em;
+}
+
+.login-input {
+    padding: .8em;
+}
+
+.form-line {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3em;
+}
+
+#login-button {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    background-color: #E50914;
+    border: none;
+    padding: .5em 2em;
+}
