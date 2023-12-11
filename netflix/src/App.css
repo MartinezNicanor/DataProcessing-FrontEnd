@@ -1,0 +1,27 @@
+.header {
+    background-color: #000000;
+    margin: 0;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    color: #ff0000;
+    margin: 0;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header-link {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.header-links {
+    display: flex;
+}
