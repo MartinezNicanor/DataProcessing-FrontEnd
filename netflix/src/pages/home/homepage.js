@@ -1,6 +1,11 @@
+import WorldMap from "./worldmap.js";
+
 const Homepage = () => {
     return(
-        <h1>Homepage</h1>
+        <div className="homepage-container">
+            <h1 className="homepage-title">STATISTICS</h1>
+            <WorldMap />
+        </div>
     );
 }
 

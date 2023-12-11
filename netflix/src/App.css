@@ -1,6 +1,19 @@
+body {
+    background-color: #000000;
+}
+
+/* grid stuff */
+
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+}
+
 /* Header */
 
 header {
+    grid-column: 1/8;
     background-color: #000000;
     display: flex;
     justify-content: space-between;
@@ -31,4 +44,28 @@ header {
 
 header > div {
     width: 20em;
+}
+
+/* Homepage */
+
+.homepage-container {
+    grid-column: 2/7;
+}
+
+.homepage-title {
+    color: #E50914;
+}
+
+.rsm-geography {
+    fill: #EAEAEC;
+    stroke: #000000;
+    stroke-width: 0.6;
+}
+
+.rsm-geography:hover {
+    fill: #E50914;
+}
+
+.rsm-geography:active {
+    fill: #EAEAEC;
 }
