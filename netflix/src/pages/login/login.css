@@ -6,13 +6,13 @@ body {
 
 #container{
 	display: grid;
-	grid-template-columns: repeat(3,1fr);
+	grid-template-columns: repeat(7,1fr);
 	
 	background-color: black;
 }
 
 .login-container {
-    grid-column: 2/3;
+    grid-column: 2/7;
     display: flex;
     flex-direction: column;
     justify-content: center;
