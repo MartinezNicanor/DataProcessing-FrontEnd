@@ -1,7 +1,9 @@
+import logo from "../../assets/bigLogo.png";
+
 const Login = ()  => {
     return (
         <div className="login-container">
-            <img id="logo" src="../../assets/bigLogo.png" height="133" width="440.04"/>
+            <img id="logo" src={logo} height="133" width="440.04"/>
             <form>
                 <div className="form-line">
                     <label for="username">Username</label>
