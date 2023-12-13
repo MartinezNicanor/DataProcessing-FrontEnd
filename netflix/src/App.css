@@ -115,3 +115,41 @@ header > div {
 .rsm-geography:active {
     fill: #EAEAEC;
 }
+
+/* reset password page */
+.reset-container {
+    grid-column: 3/6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5em 6em 5em 6em;
+    background-color: #1E1E1E;
+    margin-top: 4.5em;
+    margin-bottom: 4.5em;
+}
+
+.reset-title {
+    color:#E50914;
+}
+
+.reset-container > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.password-input {
+    padding: .8em;
+}
+
+#reset-button {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    background-color: #E50914;
+    border: none;
+    padding: .5em 2em;
+}

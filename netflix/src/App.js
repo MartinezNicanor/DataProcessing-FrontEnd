@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Homepage from "./pages/home/homepage";
 import Header from './components/header/header';
 import Login from './pages/login/login';
+import ResetPassword from './pages/reset password/resetPassword';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
             <Routes>
                 <Route path={"/"} element={<Homepage />} />
                 <Route path={"/login"} element={<Login />} />
+                <Route path={"/resetPassword"} element={<ResetPassword />} />
             </Routes>
         </Router>
     </div>
