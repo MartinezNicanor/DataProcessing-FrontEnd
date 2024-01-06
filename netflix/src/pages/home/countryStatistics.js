@@ -1,7 +1,7 @@
-const Statistics = () => {
+const CountryStatistics = ({ country }) => {
     return(
         <div className="stats-container">
-            <h1 className="homepage-title">WORLD WIDE</h1>
+            <h1 className="homepage-title">{ country }</h1>
             <div className="tables-container">
                 <div className="stats-table">
                     <div className="stats-title">
@@ -52,4 +52,4 @@ const Statistics = () => {
     );
 };
 
-export default Statistics;
+export default CountryStatistics;

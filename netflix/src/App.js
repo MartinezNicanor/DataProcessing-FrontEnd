@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Header from './components/header/Header';
 import Homepage from './pages/home/homepage';
+import Footer from './components/footer/footer';
+import Profile from './pages/profile/profile';
 
 function App() {
   return (
@@ -10,10 +12,11 @@ function App() {
         <Router>
             <Routes>
                 <Route path={"/"} element={<Homepage />} />
+                <Route path={"/profile"} element={<Profile />} />
             </Routes>
         </Router>
+        <Footer />
     </div>
-    
   );
 }
 
