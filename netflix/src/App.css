@@ -61,6 +61,51 @@ footer {
     box-shadow: 0 -2px 2px #1e1e1e;
 }
 
+
+/* login */
+.login-container {
+    grid-column: 3/6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5em;
+    background-color: #1E1E1E;
+    margin-top: 2.3em;
+    margin-bottom: 2.3em;
+}
+
+#logo {
+    margin-bottom: 2em;
+}
+
+.login-container > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-input {
+    padding: .8em;
+}
+
+.form-line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3em;
+}
+
+#login-button {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    background-color: #E50914;
+    border: none;
+    padding: .5em 2em;
+}
 /* Homepage */
 
 .homepage-container {
@@ -155,4 +200,72 @@ footer {
     border: none;
     color: #FFFFFF;
     font-size: 16px;
+}
+
+/* reset password page */
+.reset-container {
+    grid-column: 3/6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5em 6em 5em 6em;
+    background-color: #1E1E1E;
+    margin-top: 4.5em;
+    margin-bottom: 4.5em;
+}
+
+.reset-title {
+    color:#E50914;
+}
+
+.reset-container > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.password-input {
+    padding: .8em;
+}
+
+#reset-button {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    background-color: #E50914;
+    border: none;
+    padding: .5em 2em;
+}
+
+/* user overview page */
+.container {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    display: flex;
+    justify-content: center;
+}
+
+.user-overview-table {
+    border: solid 1px white;
+    border-collapse: collapse;
+    margin-top: 2em;
+}
+
+.table-header > tr {
+    color: #E50914;
+    border-bottom: solid 1px white;
+}
+
+tbody > tr {
+    border-bottom: solid 1px white;
+}
+
+.column-name,
+.table-cell {
+    padding: 1em;
+    text-align: center;
+    border-right: solid 1px white;
 }
