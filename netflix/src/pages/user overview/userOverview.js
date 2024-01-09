@@ -1,13 +1,14 @@
 const UserOverview = ({ data, profile }) => {
     const columnsConfig = {
-        senior: ['email', 'firstname', 'lastname', 'address', 'paymentmethod', 'subscription', 'numprofiles', 'status'],
-        medior: ['email', 'firstname', 'lastname', 'address', 'numprofiles', 'status'],
-        junior: ['email', 'numprofiles', 'status'],
+        senior: ['Email', 'FirstName', 'LastName', 'Address', 'PaymentMethod', 'Subscription', 'NumProfiles', 'Status'],
+        medior: ['Email', 'FirstName', 'LastName', 'Address', 'NumProfiles', 'Status'],
+        junior: ['Email', 'NumProfiles', 'Status'],
     };
   
     const columns = columnsConfig[profile] || [];
   
     return (
+        <div className="container">
         <table className="user-overview-table">
             <thead className="table-header">
             <tr>
@@ -25,7 +26,8 @@ const UserOverview = ({ data, profile }) => {
                 </tr>
             ))}
             </tbody>
-        </table>  
+        </table>
+        </div>  
     );
   };
   

@@ -155,14 +155,14 @@ header > div {
 }
 
 /* user overview page */
-.user-overview-table {
-    grid-column-start: 2;
-    grid-column-end: 7;
-
+.container {
+    grid-column-start: 1;
+    grid-column-end: 8;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+}
 
+.user-overview-table {
     border: solid 1px white;
     border-collapse: collapse;
     margin-top: 2em;
@@ -170,23 +170,16 @@ header > div {
 
 .table-header > tr {
     color: #E50914;
-    padding: 1em;
-    
-    display: flex;
-    justify-content: space-around;
+    border-bottom: solid 1px white;
 }
 
 tbody > tr {
-    display: flex;
-    justify-content: space-around;
+    border-bottom: solid 1px white;
 }
 
-.column-name {
-    padding: 0em 1em 0em 1em;
-    border: solid 1px white;
-}
-
+.column-name,
 .table-cell {
     padding: 1em;
-    border: 1px solid #ddd;
+    text-align: center;
+    border-right: solid 1px white;
 }

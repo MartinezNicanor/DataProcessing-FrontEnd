@@ -9,7 +9,9 @@ import UserOverview from './pages/user overview/userOverview';
 function App() {
 
   const userData = [
-    { id: 1, email: 'john@example.com', firstname: 'John', lastname: 'Doe', address: '123 Main St', paymentmethod: 'Credit Card', subscription: 'Premium', numprofiles: 3, status: 'Active' },
+    { id: 1, Email: 'john@email.com', FirstName: 'John', LastName: 'Doe', Address: '123 Main St', PaymentMethod: 'Credit Card', Subscription: 'Premium', NumProfiles: 3, Status: 'Active' },
+    { id: 1, Email: 'jane@example.com', FirstName: 'Jane', LastName: 'Doe', Address: '123 Main St', PaymentMethod: 'Credit Card', Subscription: 'Premium', NumProfiles: 2, Status: 'Active' },
+    { id: 1, Email: 'jess@hootmail.com', FirstName: 'Jess', LastName: 'Doe', Address: '123 Main St', PaymentMethod: 'Credit Card', Subscription: 'Premium', NumProfiles: 3, Status: 'Disactive' },
   ];
 
   return (
