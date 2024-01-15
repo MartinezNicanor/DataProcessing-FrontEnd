@@ -30,13 +30,14 @@ header {
     justify-content: end;
 }
 
-.header-buttons > button {
+.header-buttons > a {
     margin: 0 0.5em;
     padding: 0.5em;
     background-color: #E50914;
     border: none;
     color: #FFFFFF;
     font-size: 16px;
+    text-decoration: none;
 }
 
 .header-links > a {
