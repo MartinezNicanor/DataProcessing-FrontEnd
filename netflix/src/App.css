@@ -1,6 +1,7 @@
 body {
     background-color: #000000;
-    color: white;
+    color: #FFFFFF;
+    height: 100vh;
 }
 
 /* grid stuff */
@@ -8,7 +9,8 @@ body {
 .main-container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    width: 100%;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -20,12 +22,22 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1em;
-    box-shadow: 0 4px 4px #1e1e1e;
+    box-shadow: 0 2px 2px #1e1e1e;
 }
 
 .header-buttons {
     display: flex;
     justify-content: end;
+}
+
+.header-buttons > a {
+    margin: 0 0.5em;
+    padding: 0.5em;
+    background-color: #E50914;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 .header-buttons > button {
@@ -35,16 +47,29 @@ header {
     border: none;
     color: #FFFFFF;
     font-size: 16px;
+    text-decoration: none;
 }
 
 .header-links > a {
     color: #FFFFFF;
     text-decoration: none;
-    margin: 0 0.5em;
+    margin: 0 0.5em;    
 }
 
 header > div {
     width: 20em;
+}
+
+/* Footer */
+
+footer {
+    grid-column: 1/8;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    box-shadow: 0 -2px 2px #1e1e1e;
 }
 
 
@@ -113,7 +138,79 @@ header > div {
 }
 
 .rsm-geography:active {
-    fill: #EAEAEC;
+    fill: #d67979;
+}
+
+.tables-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stats-table {
+    display: flex;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5em;
+}
+
+.stats-table > div > p {
+    color: #E50914;
+}
+
+.stats-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats-table > select {
+    align-self: center;
+    margin-left: 2em;
+}
+
+.stats {
+    background-color: #FFFFFF;
+    height: 15em;
+    width: 100%;
+}
+
+/* Profile page */
+
+.profile-container {
+    grid-column: 3/6;
+    background-color: #1e1e1e;
+    margin: 5em 0;
+    padding: 2em 6em;
+}
+
+.profile-details {
+    display: flex;
+}
+
+.profile-details > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-subtitles {
+    color: #E50914;
+    gap: 1em;
+}
+
+.profile-data {
+    margin-left: 5em;
+    gap: 1em;
+}
+
+.reset-password-btn {
+    margin-top: 2em;
+    padding: 0.5em;
+    background-color: #E50914;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
 }
 
 /* reset password page */

@@ -1,11 +1,11 @@
-import React from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 import worldMap from './countries.json';
 
-const WorldMap = () => {
+const WorldMap = ({ onSelect }) => {
     const handleCountryClick = (geo) => {
-        // Handle the click event for the country
-        console.log('Clicked on:', geo.properties.name);
+        let country = geo.properties.name;
+        onSelect(country);
+        // console.log('Clicked on:', country);
     };
 
     return (
