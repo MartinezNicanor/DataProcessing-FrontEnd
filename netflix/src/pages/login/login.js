@@ -27,7 +27,7 @@ const Login = ()  => {
                     value={email}
                     />
                 </div>
-                <div className="form-line">    
+                <div className="form-line">
                     <label for="password">Password</label>
                     <input
                     type="password"
@@ -38,7 +38,7 @@ const Login = ()  => {
                     />
                 </div>
                 <button type="submit" id="login-button">Login</button>
-                {error && <div className="">{ error }</div>}
+                {error && <div className="login-error">{ error }</div>}
             </form>
         </div>
     );
