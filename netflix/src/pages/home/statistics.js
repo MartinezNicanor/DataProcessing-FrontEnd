@@ -171,6 +171,7 @@ const Statistics = () => {
         <div className="stats-container">
             <h1 className="homepage-title">WORLD WIDE</h1>
             <div className="tables-container">
+                {user.role === "Senior" &&
                 <div className="stats-table">
                     <div className="stats-title">
                         <p>Most Used Payment Method</p>
@@ -182,9 +183,9 @@ const Statistics = () => {
                             height="400px"
                             data={paymentData}
                             options={paymentOptions}
-                        />
+                        /> 
                     </div>
-                </div>
+                </div>}
                 <div className="stats-table">
                     <div className="stats-title">
                         <p>Active and Inactive Subscription</p>
@@ -199,6 +200,7 @@ const Statistics = () => {
                         />
                     </div>
                 </div>
+                {user.role === "Senior" &&
                 <div className="topTenStat">
                     <div className="stats-title">
                         <p>Top Ten Country by Revenue</p>
@@ -212,7 +214,7 @@ const Statistics = () => {
                             options={topTenOptions}
                         />
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     );

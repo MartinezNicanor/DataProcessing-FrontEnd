@@ -5,6 +5,7 @@ import { json } from "react-router-dom";
 
 const CountryStatistics = ({ country }) => {
     const [countryStatistics, setCountryStatistics] = useState([])
+    const [error, setError] = useState(null)
 
     const { user } = useAuthContext();
     
@@ -17,7 +18,7 @@ const CountryStatistics = ({ country }) => {
             const json = await response.json()
             
             if (!response.ok) {
-                console.log(json.error);
+                setError(json.error);
             }
             
             if (response.ok) {
@@ -76,8 +77,11 @@ const CountryStatistics = ({ country }) => {
 
     return(
         <div className="stats-container">
-            <h1 className="homepage-title">{ country }</h1>
+            {error && <h1 className="homepage-title">{ error } for { country }</h1>}
+            {!error && <h1 className="homepage-title">{ country }</h1>}
+            {!error &&
             <div className="tables-container">
+                {user.role === "Senior" &&
                 <div className="stats-table">
                     <div className="stats-title">
                         <p>Most Used Payment Method</p>
@@ -91,7 +95,7 @@ const CountryStatistics = ({ country }) => {
                             options={paymentOptions}
                         />
                     </div>
-                </div>
+                </div>}
                 <div className="stats-table">
                     <div className="stats-title">
                         <p>Active and Inactive Subscription</p>
@@ -107,6 +111,7 @@ const CountryStatistics = ({ country }) => {
                     </div>
                 </div>
             </div>
+            }
         </div>
     );
 };
