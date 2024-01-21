@@ -35,3 +35,9 @@ Start the server
 ```bash
   npm start
 ```
+
+Linux/Mac users please change line 18 from netflix/package.json to:
+
+```bash
+  "start": "PORT=4000 react-scripts start"
+```
