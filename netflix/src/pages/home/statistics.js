@@ -4,8 +4,29 @@ import { Chart } from "react-google-charts";
 
 const Statistics = () => { 
     const [statistics, setStatistics] = useState([]);
+    const [topCountries, setTopCountries] = useState([]);
 
     const { user } = useAuthContext();
+
+    useEffect(() => {
+        const fetchStatistics = async () => {
+            const response = await fetch(`http://localhost:4000/admin/topRevenueCountries`, {
+                method: 'GET',
+                headers: {'Authorization': `Bearer ${user.token}`},
+            })
+            const json = await response.json()
+            
+            if (!response.ok) {
+                console.log(json.error);
+            }
+            
+            if (response.ok) {
+                setTopCountries(json.data);
+            }
+        }
+
+        fetchStatistics();
+    }, [user])
 
     useEffect(() => {
         const fetchStatistics = async () => {
@@ -42,8 +63,20 @@ const Statistics = () => {
     }
 
     function getPaymentMethod(payment) {
-        
+        let sum = 0;
+        Number(sum);
+        const paymentMethods = statistics.map((row) => (
+            (payment === 'Mastercard') ? sum += Number(row.usage_of_mastercard) :
+            (payment === 'Visa') ? sum += Number(row.usage_of_visa) :
+            (payment === 'Apple Pay') ? sum += Number(row.usage_of_apple_pay) :
+            (payment === 'Google pay') ? sum += Number(row.usage_of_google_pay) :
+            (payment === 'Ideal') ? sum += Number(row.usage_of_ideal) :
+            "Payment not found"
+        ))
+        return sum;
     }
+
+    console.log(getPaymentMethod('Mastercard'));
     
     const paymentData = [
         ["Payment Method", "Accounts"],
