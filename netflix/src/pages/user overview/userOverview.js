@@ -113,7 +113,7 @@ const UserOverview = () => {
                     <table className="user-overview-table">
                         <thead className="table-header">
                         <tr>
-                            <th className="column-name">Emial</th>
+                            <th className="column-name">Email</th>
                             <th className="column-name">First Name</th>
                             <th className="column-name">Last Name</th>
                             <th className="column-name">Address</th>

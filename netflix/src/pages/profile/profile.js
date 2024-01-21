@@ -55,7 +55,6 @@ const Profile = () => {
                     {error && <p>{error}</p>}
                 </div>
             </div>
-            <button className="reset-password-btn">Reset password</button>
         </div>
     );
 };
