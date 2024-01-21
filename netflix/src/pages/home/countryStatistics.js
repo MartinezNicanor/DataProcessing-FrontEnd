@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../components/hooks/useAuthContext";
+import { Chart } from "react-google-charts";
+import { json } from "react-router-dom";
 
 const CountryStatistics = ({ country }) => {
-    const [statistics, setStatistics] = useState([])
+    const [countryStatistics, setCountryStatistics] = useState([])
 
     const { user } = useAuthContext();
     
@@ -19,59 +21,90 @@ const CountryStatistics = ({ country }) => {
             }
             
             if (response.ok) {
-                setStatistics(json.data);
+                setCountryStatistics(json.data);
             }
         }
-
+        
         fetchStatisticsByCountry();
     }, [user])
+
+    const paymentData = [
+        ["Payment Method", "Accounts"],
+        ["Paypal", Number(countryStatistics.usage_of_paypal)],
+        ["Visa", Number(countryStatistics.usage_of_visa)],
+        ["Mastercard", Number(countryStatistics.usage_of_mastercard)],
+        ["Apple Pay", Number(countryStatistics.usage_of_apple_pay)],
+        ["Google Pay", Number(countryStatistics.usage_of_google_pay)],
+        ["iDEAL", Number(countryStatistics.usage_of_ideal)],
+    ];
+
+    const paymentOptions = {
+        chartArea: { width: "60%"},
+        backgroundColor: {
+                fill: "black",
+                stroke: "black",
+                strokeWidth: 1,
+            },
+        colors: ["#E50914", "#8E1212", "#F70505", "#680303", "#F15757"],
+        legend: {
+            textStyle: {
+                color: 'white',
+            },
+        },
+    };
+
+    const subscriptionData = [
+        ["Subscriptions", "Accounts"],
+        ["Active", Number(countryStatistics.active_subscriptions)],
+        ["Inactive", Number(countryStatistics.inactive_subscriptions)],
+    ];
+
+    const subscriptionOptions = {
+        chartArea: { width: "60%"},
+        backgroundColor: {
+                fill: "black",
+                stroke: "black",
+                strokeWidth: 1,
+            },
+        colors: ["red", "gray"],
+        legend: {
+            textStyle: {
+                color: 'white',
+            },
+        },
+    };
+
     return(
         <div className="stats-container">
             <h1 className="homepage-title">{ country }</h1>
             <div className="tables-container">
                 <div className="stats-table">
                     <div className="stats-title">
-                        <p>Number of monthly subscriptions</p>
-                        <select name="monthly-subs">
-                            <option value="">year</option>
-                            <option value="">year</option>
-                            <option value="">year</option>
-                        </select>
+                        <p>Most Used Payment Method</p>
                     </div>
-                    <div className="stats"></div>
+                    <div className="stats">
+                        <Chart
+                            chartType="PieChart"
+                            width="100%"
+                            height="400px"
+                            data={paymentData}
+                            options={paymentOptions}
+                        />
+                    </div>
                 </div>
                 <div className="stats-table">
                     <div className="stats-title">
-                        <p>Most popular subscription type</p>
-                        <select name="monthly-subs">
-                            <option value="">year</option>
-                            <option value="">year</option>
-                            <option value="">year</option>
-                        </select>
+                        <p>Active and Inactive Subscription</p>
                     </div>
-                    <div className="stats"></div>
-                </div>
-                <div className="stats-table">
-                    <div className="stats-title">
-                        <p>Annaul revenue</p>
-                        <select name="monthly-subs">
-                            <option value="">year</option>
-                            <option value="">year</option>
-                            <option value="">year</option>
-                        </select>
+                    <div className="stats">
+                        <Chart
+                            chartType="PieChart"
+                            width="100%"
+                            height="400px"
+                            data={subscriptionData}
+                            options={subscriptionOptions}
+                        />
                     </div>
-                    <div className="stats"></div>
-                </div>
-                <div className="stats-table">
-                    <div className="stats-title">
-                        <p>Monthly revenue</p>
-                        <select name="monthly-subs">
-                            <option value="">year</option>
-                            <option value="">year</option>
-                            <option value="">year</option>
-                        </select>
-                    </div>
-                    <div className="stats"></div>
                 </div>
             </div>
         </div>

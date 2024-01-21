@@ -2,12 +2,18 @@ import { useState } from "react";
 import Statistics from "./statistics.js";
 import CountryStatistics from "./countryStatistics.js";
 import WorldMap from "./worldmap.js";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
     const [selectedCountry, setSelectedCountry] = useState(null);
+    const navigate = useNavigate()
 
     const handleCountrySelect = (country) => {
-        setSelectedCountry(country);
+        if (!selectedCountry) {
+            setSelectedCountry(country);
+        } else {
+            setSelectedCountry(null);
+        }
     }
     
     const renderStatisticsComponent = () => {

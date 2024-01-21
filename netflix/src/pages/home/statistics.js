@@ -48,8 +48,6 @@ const Statistics = () => {
         fetchStatistics();
     }, [user])
 
-    console.log(statistics)
-
     //functions for google charts    
     function getSubscribers(status) {     
         let sum = 0;
@@ -75,8 +73,6 @@ const Statistics = () => {
         ))
         return sum;
     }
-
-    console.log(getPaymentMethod('Mastercard'));
     
     const paymentData = [
         ["Payment Method", "Accounts"],
