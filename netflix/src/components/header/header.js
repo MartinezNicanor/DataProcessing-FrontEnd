@@ -1,16 +1,26 @@
 import logo from "../../assets/logo.png";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
 
 const Header = () => {
+    const { user } = useAuthContext()
+
+    const { logout } = useLogout()
+    
+    const handleClick = () => {
+        logout()
+    }
+
     return(
         <header>
             <div className="header-links">
-                <a href="#">My Profile</a>
-                <a href="#">Users overview</a>
+                <a href="/profile">My Profile</a>
+                <a href="userOverview">Users overview</a>
             </div>
-            <img className="header-logo" src={logo} />
+            <a href="/"><img className="header-logo" src={logo} /></a>
             <div className="header-buttons">
-                <button className="login-button">Log in</button>
-                <button className="logout-button">Log out</button>
+                {/* {!user && <a href="/login" className="login-button">Log in</a>} */}
+                {user && <button className="logout-button" onClick={handleClick}>Log out</button>}
             </div>
         </header>
     );
