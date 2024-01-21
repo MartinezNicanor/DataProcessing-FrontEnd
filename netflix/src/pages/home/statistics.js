@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuthContext } from "../../components/hooks/useAuthContext";
 import { Chart } from "react-google-charts";
 
@@ -97,6 +97,8 @@ export const topTenOptions = {
         
 
 const Statistics = () => {
+    const [statistics, setStatistics] = useState([]);
+
     const { user } = useAuthContext();
 
     useEffect(() => {
@@ -112,7 +114,7 @@ const Statistics = () => {
             }
             
             if (response.ok) {
-                console.log(json.data);
+                setStatistics(json.data);
             }
         }
 

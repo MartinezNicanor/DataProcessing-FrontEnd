@@ -1,4 +1,31 @@
+import { useEffect, useState } from "react";
+import { useAuthContext } from "../../components/hooks/useAuthContext";
+
 const CountryStatistics = ({ country }) => {
+    const [statistics, setStatistics] = useState([])
+
+    const { user } = useAuthContext();
+    
+    useEffect(() => {
+        const fetchStatisticsByCountry = async () => {
+            const response = await fetch(`http://localhost:4000/admin/statistics/${country}`, {
+                method: 'GET',
+                headers: {'Authorization': `Bearer ${user.token}`},
+            })
+            const json = await response.json()
+            
+            if (!response.ok) {
+                console.log(json.error);
+            }
+            
+            if (response.ok) {
+                setStatistics(json.data);
+            }
+        }
+
+        fetchStatisticsByCountry();
+    }, [user])
+
     return(
         <div className="stats-container">
             <h1 className="homepage-title">{ country }</h1>
