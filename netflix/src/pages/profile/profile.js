@@ -22,7 +22,6 @@ const Profile = () => {
 
             if (!response.ok) {
                 setError(json.error);
-                console.log("smth");
             }
 
             if (response.ok) {
@@ -37,8 +36,6 @@ const Profile = () => {
             fetchProfile()
         }
     }, [user])
-
-    console.log(email, fName, lName, role);
 
     return(
         <div className="profile-container">

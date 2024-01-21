@@ -11,35 +11,31 @@ import { useAuthContext } from './components/hooks/useAuthContext';
 
 function App() {
 
-  const userData = [
-    { id: 1, Email: 'john@email.com', FirstName: 'John', LastName: 'Doe', Address: '123 Main St', PaymentMethod: 'Credit Card', Subscription: 'Premium', NumProfiles: 3, Status: 'Active' },
-    { id: 1, Email: 'jane@example.com', FirstName: 'Jane', LastName: 'Doe', Address: '123 Main St', PaymentMethod: 'Credit Card', Subscription: 'Premium', NumProfiles: 2, Status: 'Active' },
-    { id: 1, Email: 'jess@hootmail.com', FirstName: 'Jess', LastName: 'Doe', Address: '123 Main St', PaymentMethod: 'Credit Card', Subscription: 'Premium', NumProfiles: 3, Status: 'Disactive' },
-  ];
-
   const { user } = useAuthContext()
 
   return (
         <div className='main-container'>
-            <Header />
             {user !== null &&
             <Router>
+                <Header />
                     <Routes>
                         <Route path='/' element={<Homepage />} />
                         <Route path='/profile' element={<Profile />} />
-                        <Route path='/userOverview' element={<UserOverview data={userData} profile="senior" />} />
+                        <Route path='/userOverview' element={<UserOverview />} />
                         <Route path='/resetPassword' element={<ResetPassword />} />
                     </Routes>
+                <Footer />
             </Router>
             }
             {user === null &&
             <Router>
+                <Header />
                     <Routes>
                         <Route path='/' element={<Login />} />
                     </Routes>
+                <Footer />
             </Router>
             }
-            <Footer />
         </div>
   );
 }
