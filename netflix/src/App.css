@@ -155,6 +155,18 @@ footer {
     margin-bottom: 5em;
 }
 
+.topTenStat {
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5em;
+}
+
+.topTenStat > div > p {
+    color: #E50914;
+}
+
 .stats-table > div > p {
     color: #E50914;
 }
@@ -171,8 +183,7 @@ footer {
 }
 
 .stats {
-    background-color: #FFFFFF;
-    height: 15em;
+    border: 1px solid #E50914;
     width: 100%;
 }
 
