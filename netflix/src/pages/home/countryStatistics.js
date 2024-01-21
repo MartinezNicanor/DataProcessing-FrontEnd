@@ -11,7 +11,7 @@ const CountryStatistics = ({ country }) => {
     
     useEffect(() => {
         const fetchStatisticsByCountry = async () => {
-            const response = await fetch(`http://localhost:4000/admin/statistics/${country}`, {
+            const response = await fetch(`http://localhost:3000/admin/statistics/${country}`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })

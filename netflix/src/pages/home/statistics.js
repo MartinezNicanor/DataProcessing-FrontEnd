@@ -10,7 +10,7 @@ const Statistics = () => {
 
     useEffect(() => {
         const fetchStatistics = async () => {
-            const response = await fetch(`http://localhost:4000/admin/topRevenueCountries`, {
+            const response = await fetch(`http://localhost:3000/admin/topRevenueCountries`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })
@@ -30,7 +30,7 @@ const Statistics = () => {
 
     useEffect(() => {
         const fetchStatistics = async () => {
-            const response = await fetch(`http://localhost:4000/admin/statistics`, {
+            const response = await fetch(`http://localhost:3000/admin/statistics`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })

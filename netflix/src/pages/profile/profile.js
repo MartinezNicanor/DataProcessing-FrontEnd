@@ -14,7 +14,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const response = await fetch(`http://localhost:4000/admin/profile/${user.id}`, {
+            const response = await fetch(`http://localhost:3000/admin/profile/${user.id}`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })
