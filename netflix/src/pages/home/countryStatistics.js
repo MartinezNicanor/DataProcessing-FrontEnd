@@ -25,7 +25,6 @@ const CountryStatistics = ({ country }) => {
 
         fetchStatisticsByCountry();
     }, [user])
-
     return(
         <div className="stats-container">
             <h1 className="homepage-title">{ country }</h1>

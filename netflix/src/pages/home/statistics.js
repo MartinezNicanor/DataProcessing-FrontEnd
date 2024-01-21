@@ -2,101 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../../components/hooks/useAuthContext";
 import { Chart } from "react-google-charts";
 
-export const paymentData = [
-    ["Payment Method", "Accounts"],
-    ["Mastercard", 5175000],
-    ["Visa", 4792000],
-    ["Apple Pay", 3695000],
-    ["Google Pay", 2299000],
-    ["Ideal", 1526000],
-  ];
-
-export const paymentOptions = {
-    chartArea: { width: "60%"},
-    backgroundColor: {
-            fill: "black",
-            stroke: "black",
-            strokeWidth: 1,
-        },
-    colors: ["#E50914", "#8E1212", "#F70505", "#680303", "#F15757"],
-    legend: {
-        textStyle: {
-            color: 'white',
-        },
-    },
-};
-
-export const subscriptionData = [
-    ["Subscriptions", "Accounts"],
-    ["Active", 2695000],
-    ["Inactive", 1526548],
-  ];
-
-export const subscriptionOptions = {
-    chartArea: { width: "60%"},
-    backgroundColor: {
-            fill: "black",
-            stroke: "black",
-            strokeWidth: 1,
-        },
-    colors: ["red", "gray"],
-    legend: {
-        textStyle: {
-            color: 'white',
-        },
-    },
-};
-
-export const topTenData = [
-    ["Country", "Revenue"],
-    ["USA", 9175756],
-    ["Canada", 8792865],
-    ["UK", 7695268],
-    ["China", 6896512],
-    ["Germany", 5657429],
-    ["Japan", 5099584],
-    ["Australia", 4524579],
-    ["Italy", 3657842],
-    ["Netherlands", 2598411],
-    ["Nepal", 1256994],
-];
-
-export const topTenOptions = {
-    chartArea : {width: "75%"},
-    hAxis: {
-        title: "Country",
-        textStyle: {
-            color: 'white',
-            },
-        titleTextStyle: {
-            color: 'white',
-            },
-        minValue: 0,
-    },
-    vAxis: {
-        title: "Revenue",
-        textStyle: {
-            color: 'white',
-            },
-        titleTextStyle: {
-            color: 'white',
-            },
-    },
-    backgroundColor: {
-        fill: "black",
-        stroke: "black",
-        strokeWidth: 1,
-    },
-    colors: ["#E50914", "#8E1212"],
-    legend: {
-        textStyle: {
-        color: 'white',
-        },
-    },
-};
-        
-
-const Statistics = () => {
+const Statistics = () => { 
     const [statistics, setStatistics] = useState([]);
 
     const { user } = useAuthContext();
@@ -121,6 +27,117 @@ const Statistics = () => {
         fetchStatistics();
     }, [user])
 
+    console.log(statistics)
+
+    //functions for google charts    
+    function getSubscribers(status) {     
+        let sum = 0;
+        Number(sum);
+        const totalSubscribers = statistics.map((row) => (
+            (status === "active") ? sum += Number(row.active_subscriptions) :
+            (status === "inactive") ? sum += Number(row.inactive_subscriptions) :
+            "Status not found"
+        ));
+        return sum;
+    }
+
+    function getPaymentMethod(payment) {
+        
+    }
+    
+    const paymentData = [
+        ["Payment Method", "Accounts"],
+        ["Mastercard", 5175000],
+        ["Visa", 4792000],
+        ["Apple Pay", 3695000],
+        ["Google Pay", 2299000],
+        ["Ideal", 1526000],
+    ];
+
+    const paymentOptions = {
+        chartArea: { width: "60%"},
+        backgroundColor: {
+                fill: "black",
+                stroke: "black",
+                strokeWidth: 1,
+            },
+        colors: ["#E50914", "#8E1212", "#F70505", "#680303", "#F15757"],
+        legend: {
+            textStyle: {
+                color: 'white',
+            },
+        },
+    };
+
+    const subscriptionData = [
+        ["Subscriptions", "Accounts"],
+        ["Active", getSubscribers("active")],
+        ["Inactive", getSubscribers("inactive")],
+    ];
+
+    const subscriptionOptions = {
+        chartArea: { width: "60%"},
+        backgroundColor: {
+                fill: "black",
+                stroke: "black",
+                strokeWidth: 1,
+            },
+        colors: ["red", "gray"],
+        legend: {
+            textStyle: {
+                color: 'white',
+            },
+        },
+    };
+
+    const topTenData = [
+        ["Country", "Revenue"],
+        ["USA", 9175756],
+        ["Canada", 8792865],
+        ["UK", 7695268],
+        ["China", 6896512],
+        ["Germany", 5657429],
+        ["Japan", 5099584],
+        ["Australia", 4524579],
+        ["Italy", 3657842],
+        ["Netherlands", 2598411],
+        ["Nepal", 1256994],
+    ];
+
+    const topTenOptions = {
+        chartArea : {width: "75%"},
+        hAxis: {
+            title: "Country",
+            textStyle: {
+                color: 'white',
+                },
+            titleTextStyle: {
+                color: 'white',
+                },
+            minValue: 0,
+        },
+        vAxis: {
+            title: "Revenue",
+            textStyle: {
+                color: 'white',
+                },
+            titleTextStyle: {
+                color: 'white',
+                },
+        },
+        backgroundColor: {
+            fill: "black",
+            stroke: "black",
+            strokeWidth: 1,
+        },
+        colors: ["#E50914", "#8E1212"],
+        legend: {
+            textStyle: {
+            color: 'white',
+            },
+        },
+    };
+        
     return(
         <div className="stats-container">
             <h1 className="homepage-title">WORLD WIDE</h1>
