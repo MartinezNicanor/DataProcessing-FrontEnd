@@ -12,7 +12,7 @@ const UserOverview = () => {
     
     useEffect(() => {
         const fetchJuniorOverview = async () => {
-            const response = await fetch(`http://localhost:4000/admin/juniorView`, {
+            const response = await fetch(`http://localhost:3000/admin/juniorView`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })
@@ -32,7 +32,7 @@ const UserOverview = () => {
     
     useEffect(() => {
         const fetchMediorOverview = async () => {
-            const response = await fetch(`http://localhost:4000/admin/mediorView`, {
+            const response = await fetch(`http://localhost:3000/admin/mediorView`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })
@@ -52,7 +52,7 @@ const UserOverview = () => {
 
     useEffect(() => {
         const fetchSeniorOverview = async () => {
-            const response = await fetch(`http://localhost:4000/admin/seniorView`, {
+            const response = await fetch(`http://localhost:3000/admin/seniorView`, {
                 method: 'GET',
                 headers: {'Authorization': `Bearer ${user.token}`},
             })
