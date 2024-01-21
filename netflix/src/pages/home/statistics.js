@@ -48,8 +48,6 @@ const Statistics = () => {
         fetchStatistics();
     }, [user])
 
-    console.log(statistics)
-
     //functions for google charts    
     function getSubscribers(status) {     
         let sum = 0;
@@ -76,13 +74,13 @@ const Statistics = () => {
         ))
         return sum;
     }
-    //console.log(topCountries);
+    
     function getTopTenCountries() {
         const country = [["Country", "Revenue"]];
 
         for (let index = 0; index < 10; index++) {
             const matchingRow = topCountries[index];
-            console.log("here",matchingRow);
+            
             if (matchingRow) {
                 const foo = [matchingRow.country_name, Number(matchingRow.subscription_revenue)];
                 country.push(foo);
@@ -91,7 +89,6 @@ const Statistics = () => {
                 country.push(foo);
             }
         }
-        console.log(country);
         return country;
     }
     
