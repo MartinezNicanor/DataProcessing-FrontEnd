@@ -64,23 +64,42 @@ const Statistics = () => {
         let sum = 0;
         Number(sum);
         const paymentMethods = statistics.map((row) => (
-            (payment === 'Mastercard') ? sum += Number(row.usage_of_mastercard) :
+            (payment === 'PayPal') ? sum += Number(row.usage_of_paypal) :
             (payment === 'Visa') ? sum += Number(row.usage_of_visa) :
+            (payment === 'Mastercard') ? sum += Number(row.usage_of_mastercard) :
             (payment === 'Apple Pay') ? sum += Number(row.usage_of_apple_pay) :
-            (payment === 'Google pay') ? sum += Number(row.usage_of_google_pay) :
-            (payment === 'Ideal') ? sum += Number(row.usage_of_ideal) :
+            (payment === 'Google Pay') ? sum += Number(row.usage_of_google_pay) :
+            (payment === 'iDeal') ? sum += Number(row.usage_of_ideal) :
             "Payment not found"
         ))
         return sum;
     }
     
+    function getTopTenCountries() {
+        const country = [["Country", "Revenue"]];
+
+        for (let index = 0; index < 10; index++) {
+            const matchingRow = topCountries[index];
+            
+            if (matchingRow) {
+                const foo = [matchingRow.country_name, Number(matchingRow.subscription_revenue)];
+                country.push(foo);
+            } else {
+                const foo = ["Empty", 0];
+                country.push(foo);
+            }
+        }
+        return country;
+    }
+    
     const paymentData = [
         ["Payment Method", "Accounts"],
-        ["Mastercard", 5175000],
-        ["Visa", 4792000],
-        ["Apple Pay", 3695000],
-        ["Google Pay", 2299000],
-        ["Ideal", 1526000],
+        ["PayPal", getPaymentMethod("PayPal")],
+        ["Visa", getPaymentMethod("Visa")],
+        ["Mastercard", getPaymentMethod("Mastercard")],
+        ["Apple Pay", getPaymentMethod("Apple Pay")],
+        ["Google Pay", getPaymentMethod("Google Pay")],
+        ["iDeal", getPaymentMethod("iDeal")],
     ];
 
     const paymentOptions = {
@@ -119,19 +138,7 @@ const Statistics = () => {
         },
     };
 
-    const topTenData = [
-        ["Country", "Revenue"],
-        ["USA", 9175756],
-        ["Canada", 8792865],
-        ["UK", 7695268],
-        ["China", 6896512],
-        ["Germany", 5657429],
-        ["Japan", 5099584],
-        ["Australia", 4524579],
-        ["Italy", 3657842],
-        ["Netherlands", 2598411],
-        ["Nepal", 1256994],
-    ];
+    const topTenData = getTopTenCountries();
 
     const topTenOptions = {
         chartArea : {width: "75%"},
@@ -146,7 +153,7 @@ const Statistics = () => {
             minValue: 0,
         },
         vAxis: {
-            title: "Revenue",
+            title: "Revenue in Euro(€)",
             textStyle: {
                 color: 'white',
                 },
